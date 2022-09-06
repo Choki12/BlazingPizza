@@ -1,5 +1,20 @@
 ﻿@inherits LayoutComponentBase
 
+<!--Define top bar for main layout to be scaffolded as we navigate across multiple pages-->  
+<div class="top-bar">
+    <a class="logo" href="">
+        <img src="img/logo.svg" />
+    </a>
+
+
+    <NavLink href="" class="nav-tab" Match="NavLinkMatch.All"> <!---NavLink component matches current url with link address only if it is active->
+        <img src="img/pizza-slice.svg" />
+        <div>Get Pizza</div>
+    </NavLink>
+</div>
+
+
+
 <div class="content">
     @Body
 </div>
