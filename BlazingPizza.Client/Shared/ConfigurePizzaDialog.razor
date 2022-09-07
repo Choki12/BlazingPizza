@@ -1,7 +1,26 @@
 ﻿<h3>ConfigurePizzaDialog</h3>
 
+<div class="dialog-container">
+    <div class="dialog">
+        <div class="dialog-title">
+            <h2>@Pizza.Special.Name</h2>
+            @Pizza.Special.Description
+        </div>
+        <form class="dialog-body"></form>
+        <div class="dialog-buttons">
+            <button class="btn btn-secondary mr-auto">Cancel</button>
+            <span class="mr-center">
+                Price: <span class="price">@(Pizza.GetFormattedTotalPrice())</span>
+            </span>
+            <button class="btn btn-success ml-auto">Order</button>
+        </div>
+    </div>
+</div>
+
 @code {
     //Add component parameter to specify object being accessed and changed
+    //Component needs to be public and set by the set by the framework (blazor) should not be changed outside of this scope
+    
     [Parameter] public Pizza Pizza { get; set; }
 
 }

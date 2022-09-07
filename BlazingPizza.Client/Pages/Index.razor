@@ -21,6 +21,12 @@
     </ul>
 </div>
 
+<!--Overlays Index page when selected-->
+@if (showingConfiguringDialog)
+{
+    <ConfigurePizzaDialog Pizza="configuringPizza" />
+}
+
 @code{
     List<PizzaSpecial> specials; //Defined in BlazingPizza.Shared
     Pizza configuringPizza;
