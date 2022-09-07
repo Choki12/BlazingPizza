@@ -9,7 +9,7 @@
         {
             @foreach (var special in specials)
             {
-                <li @onclick="@(() => Console.WriteLine(special.Name))"   style="background-image: url('@special.ImageUrl')">
+                <li @onclick="@(() => ShowingConfigureDialog(special))"   style="background-image: url('@special.ImageUrl')">
                     <div class="pizza-info">
                         <span class="title">@special.Name</span>
                         @special.Description
@@ -35,5 +35,15 @@
     void ShowingConfigureDialog(PizzaSpecial special)
     {
         // define
+        configuringPizza = new Pizza()
+            {
+                Special = special,
+                SpecialId = special.Id,
+                Size = Pizza.DefaultSize,
+                Toppings = new List<PizzaTopping>(),
+            };
+
+            showingConfiguringDialog = true;
+
     }
 }
