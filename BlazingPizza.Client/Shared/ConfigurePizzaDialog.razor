@@ -1,12 +1,19 @@
-﻿<h3>ConfigurePizzaDialog</h3>
-
+﻿
 <div class="dialog-container">
     <div class="dialog">
         <div class="dialog-title">
             <h2>@Pizza.Special.Name</h2>
             @Pizza.Special.Description
         </div>
-        <form class="dialog-body"></form>
+        <form class="dialog-body">
+            <div>
+                <label>Size:</label>
+                <input type="range" min="@Pizza.MinimumSize" max="@Pizza.MaximumSize" step="1" @bind= "Pizza.Size" @bind:event="oninput" />
+                <span class="size-label">
+                    @(Pizza.Size)" (£@(Pizza.GetFormattedTotalPrice())) <!--Specify pizza size-->
+                </span>
+              </div>
+        </form>
         <div class="dialog-buttons">
             <button class="btn btn-secondary mr-auto">Cancel</button>
             <span class="mr-center">
@@ -19,7 +26,7 @@
 
 @code {
     //Add component parameter to specify object being accessed and changed
-    //Component needs to be public and set by the set by the framework (blazor) should not be changed outside of this scope
+    //Component needs to be public and set by the framework (blazor), this component should not be changed outside of this scope
     
     [Parameter] public Pizza Pizza { get; set; }
 
