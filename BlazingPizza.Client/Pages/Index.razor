@@ -24,13 +24,14 @@
 <!--Overlays Index page when selected-->
 @if (showingConfiguringDialog)
 {
-    <ConfigurePizzaDialog Pizza="configuringPizza" OnCancel="CancelConfigurePizzaDialog"/>
+    <ConfigurePizzaDialog Pizza="configuringPizza" OnCancel="CancelConfigurePizzaDialog" OnConfirm="ConfirmConfigurePizzaDialog"/>
 }
 
 @code{
     List<PizzaSpecial> specials; //Defined in BlazingPizza.Shared
     Pizza configuringPizza;
     bool showingConfiguringDialog;
+    Order order = new Order();
 
 
     protected override async Task OnInitializedAsync()
@@ -54,6 +55,13 @@
 
     void CancelConfigurePizzaDialog()
     {
+        configuringPizza = null;
+        showingConfiguringDialog = false;
+    }
+
+    void ConfirmConfigurePizzaDialog()
+    {
+        order.Pizzas.Add(configuringPizza);
         configuringPizza = null;
         showingConfiguringDialog = false;
     }
