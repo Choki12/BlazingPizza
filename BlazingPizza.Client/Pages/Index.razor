@@ -9,7 +9,7 @@
         {
             @foreach (var special in specials)
             {
-                <li style="background-image: url('@special.ImageUrl')">
+                <li @onclick="@(() => Console.WriteLine(special.Name))"   style="background-image: url('@special.ImageUrl')">
                     <div class="pizza-info">
                         <span class="title">@special.Name</span>
                         @special.Description
@@ -23,9 +23,17 @@
 
 @code{
     List<PizzaSpecial> specials; //Defined in BlazingPizza.Shared
+    Pizza configuringPizza;
+    bool showingConfiguringDialog;
+
 
     protected override async Task OnInitializedAsync()
     {
         specials = await HttpClient.GetFromJsonAsync<List<PizzaSpecial>>("specials", BlazingPizza.OrderContext.Default.ListPizzaSpecial);
+    }
+
+    void ShowingConfigureDialog(PizzaSpecial special)
+    {
+        // define
     }
 }
