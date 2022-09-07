@@ -24,7 +24,7 @@
 <!--Overlays Index page when selected-->
 @if (showingConfiguringDialog)
 {
-    <ConfigurePizzaDialog Pizza="configuringPizza" />
+    <ConfigurePizzaDialog Pizza="configuringPizza" OnCancel="CancelConfigurePizzaDialog"/>
 }
 
 @code{
@@ -48,7 +48,13 @@
                 Toppings = new List<PizzaTopping>(),
             };
 
-            showingConfiguringDialog = true;
+        showingConfiguringDialog = true;
 
+    }
+
+    void CancelConfigurePizzaDialog()
+    {
+        configuringPizza = null;
+        showingConfiguringDialog = false;
     }
 }

@@ -51,11 +51,11 @@
 
         </form>
         <div class="dialog-buttons">
-            <button class="btn btn-secondary mr-auto">Cancel</button>
+            <button class="btn btn-secondary mr-auto" @onclick="OnCancel">Cancel</button>
             <span class="mr-center">
                 Price: <span class="price">@(Pizza.GetFormattedTotalPrice())</span>
             </span>
-            <button class="btn btn-success ml-auto">Order</button>
+            <button class="btn btn-success ml-auto" @onclick="OnConfirm">Order</button>
         </div>
     </div>
 </div>
@@ -65,6 +65,10 @@
     //Component needs to be public and set by the framework (blazor), this component should not be changed outside of this scope
 
     [Parameter] public Pizza Pizza { get; set; }
+    
+    //Component events
+    [Parameter] public EventCallback OnCancel { get; set; }
+    [Parameter] public EventCallback OnConfirm { get; set; }
 
     //Allow user to select pizza toppings
     List<Topping> toppings;
