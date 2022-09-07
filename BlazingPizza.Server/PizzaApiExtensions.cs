@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BlazingPizza.Server;
 
+//Minimal API 
 public static class PizzaApiExtensions
 {
 

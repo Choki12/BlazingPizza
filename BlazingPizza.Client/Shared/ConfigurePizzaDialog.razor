@@ -1,4 +1,5 @@
-﻿
+﻿@inject HttpClient HttpClient 
+
 <div class="dialog-container">
     <div class="dialog">
         <div class="dialog-title">
@@ -27,7 +28,18 @@
 @code {
     //Add component parameter to specify object being accessed and changed
     //Component needs to be public and set by the framework (blazor), this component should not be changed outside of this scope
-    
+
     [Parameter] public Pizza Pizza { get; set; }
+
+    //Allow user to select pizza toppings
+    List<Topping> toppings;
+
+    protected async override Task OnInitializedAsync()
+    {
+        toppings = await HttpClient.GetFromJsonAsync<List<Topping>>("toppings"); //GET Request to Minimal API PizzaApiExtensions
+    }
+
+
+
 
 }
