@@ -1,5 +1,4 @@
 1. Project's Title
-
 Blazing Pizza
 
 2. Project Description
@@ -12,7 +11,7 @@ code is run in browser with almost the same speed as native browser code. The pr
 code conviniently allowing for the same code and framework to be used consistently across the application stack. 
 
 The back-end is built with EntityCoreFramework, this framework is convinient because it uses a code first approach so the Database is built first
-and allows db configuration as opposed to working on an existing db. Querying the DB is done via entities. DB mappings can bre designed visually.The boiler plate code for a lot of the mappings is auto-generated so development is much faster and less tedious.
+and allows db configuration as opposed to working on an existing db. Querying the DB is done via entities. DB mappings can be designed visually.The boiler plate code for a lot of the mappings is auto-generated so development is much faster and less tedious.
 
 3. How to run the Application
 - Clone the given repo (https://github.com/Choki12/BlazingPizza.git)
