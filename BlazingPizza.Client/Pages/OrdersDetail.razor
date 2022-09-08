@@ -1,13 +1,14 @@
 ﻿@page "/myorders/{orderId:int}"
 @using System.Threading
 @inject HttpClient HttpClient
+@implements IDisposable
 
-<PageTitle>Blazing Pizza - Orders Detail</PageTitle>
+<PageTitle>Blazing Pizza - Order Details</PageTitle>
 
 <div class="main">
       @if (invalidOrder)
     {
-        <h2>sSorry..</h2>
+        <h2>Sorry..</h2>
         <p>Order could not be loaded</p>
     }
     else if (orderWithStatus == null)
@@ -82,5 +83,10 @@
             }
         }
 
+    }
+
+    void IDisposable.Dispose()
+    {
+        pollingCancellationToken?.Cancel();
     }
 }
