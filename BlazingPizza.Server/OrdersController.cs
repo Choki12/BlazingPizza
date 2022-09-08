@@ -91,9 +91,7 @@ public class OrdersController : Controller
 
     private static async Task TrackAndSendNotificationsAsync(Order order, NotificationSubscription subscription)
     {
-        // In a realistic case, some other backend process would track
-        // order delivery progress and send us notifications when it
-        // changes. Since we don't have any such process here, fake it.
+       
         await Task.Delay(OrderWithStatus.PreparationDuration);
         await SendNotificationAsync(order, subscription, "Your order has been dispatched!");
 
@@ -103,7 +101,7 @@ public class OrdersController : Controller
 
     private static Task SendNotificationAsync(Order order, NotificationSubscription subscription, string message)
     {
-        // This will be implemented later
+        
         return Task.CompletedTask;
     }
 }
