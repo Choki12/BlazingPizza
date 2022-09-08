@@ -1,7 +1,7 @@
 1. Project's Title
 Blazing Pizza
 
-2.Project Description
+2. Project Description
 A single page application built with the Blazor framework, this is a simple Pizza store application that allows you to place an order,
 add additional items to an order and view the status of an order. I used Blazor because the the SPA layout for overlaying pages 
 is robust and translates well for navigation. All "pages" are anchored onto the MainLayout.razor component. The framework also allows
