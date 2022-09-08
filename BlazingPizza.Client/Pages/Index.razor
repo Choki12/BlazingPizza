@@ -1,5 +1,7 @@
 ﻿@page "/"
 @inject HttpClient HttpClient //Defines property type and property name, in this case the dependency injection handles the directive call to HttpClient in Index
+@inject NavigationManager NavigationManager
+
 
 <!--h1>Blazing Pizzas</-->
 
@@ -100,7 +102,9 @@
     async Task PlaceOrder()
     {
         //POST customer order to orders list in Minimal API
-        await HttpClient.PostAsJsonAsync("orders", order);
+        var response = await HttpClient.PostAsJsonAsync("orders", order);
+        var newOrderId = await response.Content.ReadFromJsonAsync<int>();
         order = new Order();
+        NavigationManager.NavigateTo($"myorders/{newOrderId}");
     }
 }
